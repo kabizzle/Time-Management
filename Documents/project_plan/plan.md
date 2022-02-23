@@ -45,11 +45,7 @@ Activity times will be stored in lists.
 
 Data about days and activities will be stored in .json files, as these can be easily converted to python data types.
 
-The list of .json files for different days can be stored in a .txt file.
-
-
-# Algorithms 
-
+The list of .json files for different days can be stored in a .txt file.  
 
 # Testing plan
 
@@ -59,8 +55,7 @@ The program will be tested by:
 - Reading activity and time data in files
 - Writing activity and time data to files  
 - Adding activity and ensuring object is created
-- Ensuring all elements graphical interface perform desired method
-
+- Ensuring all elements graphical interface perform desired method  
 
 # Libraries and other tools
 
@@ -89,8 +84,9 @@ The program will be tested by:
     Documentation should be completed, more testing in progress, graphical interface being refined
 
 -  3.05.2022
-    Program should be fully completed and uploaded to submitted to A+
+    Program should be fully completed and uploaded to submitted to A+  
 
+<br /><br />
 
 # Literature references and links
 
