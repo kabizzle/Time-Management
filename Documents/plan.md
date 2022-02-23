@@ -1,10 +1,8 @@
 # Personal information 
 
 - Time Management
-- Kabir Bissessar
-- 1007073
-- CS-A1123
-- 23/02/22
+- Kabir Bissessar | 1007073 | CS-A1123
+- 24/02/22
 
 # General description and difficulty level
 
@@ -16,17 +14,11 @@ I will be attempting the Medium difficulty for this project. This will include a
 
 The user will interact with the program through a Graphical User Interface. The user will be able to create activities using a text field, select an activity from a checklist and start/stop the timer using a button. The program will print its messages in the gui. 
 
-### Graphic interface
+## Graphic interface
 
-<!-- The program window will display:
-- a list of all the user's created activities 
-- a text box and button for the user to create a new activity
-- a button to start and stop the timer -->
+![concept of program's graphical interface](Y2-program-concept.png)
 
-
-![concept of program's graphical interface](/Documents/Y2-program-concept.png "Concept of program's graphical interface")
-
-### Use case
+## Use case
 
 A user studying for their courses in a period can use this program to track how much time they spend on different topics. The user can open the program, enter the name of the topic they are currently study and add it using the "add new activity" button. They can then start the timer and begin their work. When they are finished, they will end the timer using the same button (which will display stop timer). The time data will then be saved to a .txt file, which can be accessed in the future to read and write time data. 
 
@@ -38,6 +30,7 @@ A user studying for their courses in a period can use this program to track how 
 - Time Object
 - Data Object
 
+![UML diagram, showing structure of program](UML_diagram.png)
 
 # Data structures
 
@@ -72,7 +65,7 @@ The program will be tested by:
 # Libraries and other tools
 
 ### PyQT5
-PyQT5 will be used to create the graphical interface
+- PyQT5 will be used to create the graphical interface
 
 ### Python Modules
 - Time module
