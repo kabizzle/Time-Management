@@ -1,10 +1,10 @@
 # Personal information 
 
-Time Management
-Kabir Bissessar
-1007073
-CS-A1123
-23/02/22
+- Time Management
+- Kabir Bissessar
+- 1007073
+- CS-A1123
+- 23/02/22
 
 # General description and difficulty level
 
@@ -93,7 +93,7 @@ PyQT5 will be used to create the graphical interface
     Checkpoint 2 - Graphical interface should be completed, unittesting started
 
 - 23.04.2022
-    Documentatio should be completed, more testing in progress, graphical interface being refined
+    Documentation should be completed, more testing in progress, graphical interface being refined
 
 -  3.05.2022
     Program should be fully completed and uploaded to submitted to A+
