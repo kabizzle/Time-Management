@@ -1,4 +1,4 @@
-# Time_Management
+# Time Management
 # Kabir Bissessar 1007073 CS-A1123
 
 ## Checkpoint 1 
