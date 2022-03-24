@@ -1,6 +1,7 @@
 # Time_Management
+# Kabir Bissessar 1007073 CS-A1123
 
-## Checkpoint1 
+## Checkpoint 1 
 
 ## Current properties
 
