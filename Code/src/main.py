@@ -11,7 +11,7 @@ def main():
     activities = []
     activity_name = input("Enter activity name: \n")
     start_time = datetime.now()
-    print(f"{activity_name} started at time {start_time.time()}")
+    print(f"{activity_name} started at time {start_time.time()}.")
 
     while True:
         end = input("Enter 'stop' to end your activity timer: \n")
@@ -20,6 +20,9 @@ def main():
             activities.append(Activity(activity_name, start_time, end_time))
 
             activity = activities[0]
+
+            print(f"{activity.get_name()} ended at time {end_time.time()}.")
+            print(f"Total time was {activity.get_time().get_total_time()}")
             time_info = activity.serialize()
 
             # time_info = {
@@ -30,8 +33,9 @@ def main():
 
             time_info_json = json.dumps(time_info, indent=4)
 
-            with open('./time_data.json', 'w') as time_file:
+            with open('time_data.json', 'r+') as time_file:
                 time_file.write(time_info_json)
+            
             
             break
     
