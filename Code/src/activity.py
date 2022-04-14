@@ -11,6 +11,9 @@ class Activity:
     def get_time(self):
         return self.time
 
+    def change_time(self, start_time, end_time):
+        self.time = Time(start_time, end_time)
+
     def serialize(self):
         return {
             "Activity" : self.name,
