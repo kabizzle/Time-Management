@@ -33,9 +33,9 @@ Yes, I will work on the GUI over the course of the next week, instead of it bein
 
 Yes, I ran into a couple problems so far:
 
-- Building the GUI
+- Building the GUI- 
 I started building the gui by following the template  from RobotWorld, but after learning more about PyQt5, I changed the format a bit. 
 Also, I think my code wasn't "Object Oriented" enough, so I will need to revisit my Classes and Methods to better integrate with the GUI elements. 
 
-- Time display and tracking
+- Time display and tracking - 
 I initially wrote the program using the DateTime module and I was simply tracking time, not displaying it. However, now that I need to display the time in the GUI, I may have to reevaluate this choice.
