@@ -3,13 +3,13 @@ import sys
 from time import time
 from file_data import FileData
 from activity import Activity
-# from time_data import Time
+from time_data import Time
 from PyQt5 import QtWidgets, QtGui
-# from datetime import datetime
+from datetime import datetime
 from PyQt5.QtCore import QTimer
 import json
 
-# from gui import GUI
+from gui import GUI
 
 def activity_in_list(activities, name):
     for activity in activities:
@@ -51,14 +51,11 @@ def time_activity(activities):
 
 def main():
     # global app
-    # app = QtWidgets.QApplication([])
-    # window = GUI()
+    app = QtWidgets.QApplication(sys.argv)
+    window = GUI()
 
     # window.show()
-
-    
-    file_data = read_json()
-    
+    # file_data = read_json()
 
     activities = []
     while True:
@@ -73,7 +70,7 @@ def main():
         else:
             continue
 
-    # app.exec_()
+    sys.exit(app.exec_())
     
 
     # start = datetime(2022, 3, 24, 17, 30, 0)
