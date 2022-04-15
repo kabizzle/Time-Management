@@ -5,7 +5,7 @@
 
 ## Current properties
 
-I have written four different classes so far: Activity, Time, FileData and GUI. I am currently working on the GUI, so the previous functionality has been altered: the time for an activity cannot be tracked. 
+I have written four different classes so far: Activity, Time, FileData and GUI. I am currently working on the GUI, so the previous functionality has been altered (i.e. the time for an activity cannot be tracked.)
 
 ## Instructions
 
@@ -35,7 +35,6 @@ Yes, I ran into a couple problems so far:
 
 - Building the GUI
 I started building the gui by following the template  from RobotWorld, but after learning more about PyQt5, I changed the format a bit. 
-
 Also, I think my code wasn't "Object Oriented" enough, so I will need to revisit my Classes and Methods to better integrate with the GUI elements. 
 
 - Time display and tracking
