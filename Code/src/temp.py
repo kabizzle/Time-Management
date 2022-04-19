@@ -1,15 +1,10 @@
-import sys
-
 from time import time
 from file_data import FileData
 from activity import Activity
 from time_data import Time
-from PyQt5 import QtWidgets, QtGui
-from datetime import datetime
-from PyQt5.QtCore import QTimer
 import json
+from datetime import datetime
 
-from gui import GUI
 
 def activity_in_list(activities, name):
     for activity in activities:
@@ -46,14 +41,9 @@ def time_activity(activities):
             with open('time_data.json', 'a+') as time_file:
                 time_file.write(time_info_json)
             break
-    return activities    
-
+    return activities  
 
 def main():
-    # global app
-    app = QtWidgets.QApplication(sys.argv)
-    window = GUI()
-
     activities = []
     while True:
         activities = time_activity(activities)
@@ -64,12 +54,9 @@ def main():
 
         if exit.lower() == "e":
             break
-        else:
-            continue
-
-    sys.exit(app.exec_())
-    
+        # else:
+        #     continue
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
