@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets, QtGui, QtCore
 import sys
-from timer_class import Timer
+# from timer_class import Timer
 
 class GUI(QtWidgets.QWidget):
     def __init__(self):
@@ -85,7 +85,7 @@ class GUI(QtWidgets.QWidget):
         
         self.start_timer = QtWidgets.QPushButton("Start Timer", self, clicked=lambda:self.start())
 
-        self.stop_timer = QtWidgets.QPushButton("Pause Timer", self, clicked=lambda:self.stop())
+        self.stop_timer = QtWidgets.QPushButton("Stop Timer", self, clicked=lambda:self.stop())
         
         self.reset_timer = QtWidgets.QPushButton("Reset Timer", self, clicked=lambda:self.reset())
 
@@ -132,7 +132,9 @@ class GUI(QtWidgets.QWidget):
         # checking that only 5 activities are added
         if i < 5 and self.activity_name.text() != "":
             # checkbox with activities
-            name = self.activity_name.text()
+            text = self.activity_name.text().split("/ ")
+            name = text[0]
+            hours = text[1]
             # self.activities.addItem(name)
             self.checkbox = QtWidgets.QCheckBox(name, self)
             self.checkbox.setGeometry(25, 100, 30, 30)
@@ -165,7 +167,7 @@ class GUI(QtWidgets.QWidget):
     
     def pomodoro(self):
         pass
-
+    
 
 app = QtWidgets.QApplication(sys.argv)
 window = GUI()

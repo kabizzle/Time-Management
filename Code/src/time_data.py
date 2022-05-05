@@ -15,10 +15,8 @@ class Time:
 
         return self.time, self.hours, self.minutes, self.seconds
 
-
     def get_total_time(self):
-        return self.time
-
+        return self.time.seconds
     
     def serialize(self):
         return {
