@@ -1,5 +1,7 @@
 from PyQt5 import QtWidgets, QtGui, QtCore
 import sys
+from activity import Activity
+
 # from timer_class import Timer
 
 class GUI(QtWidgets.QWidget):
@@ -7,21 +9,33 @@ class GUI(QtWidgets.QWidget):
         super().__init__()
         self.setGeometry(100,100,1000,625)
         self.setWindowTitle("Time Management")
-        self.layout = QtWidgets.QGridLayout(self)
-        self.activity_count = 0
+
+        self.activities = []
+        self.checkboxes = []
         self.timer_count = 0
         self.flag = False
+
+        self.configure_layout()
+        self.ui_components()
+        self.init_buttons()
+        self.display_time()
+
+        self.timer = QtCore.QTimer(self)
+
+		# adding action to timer
+        self.timer.timeout.connect(self.display_time)
+
+		# update the timer every second
+        self.timer.start(1000)
+
+        self.show()
+
+    def configure_layout(self):
+        self.layout = QtWidgets.QGridLayout(self)
 
         self.activity_layout = QtWidgets.QVBoxLayout()
         self.button_layout = QtWidgets.QVBoxLayout()
         self.timer_layout = QtWidgets.QVBoxLayout()
-
-        # self.activity_layout.setSizeConstraint(200)
-
-        self.ui_components()
-        self.init_buttons()
-        self.display_time()
-        
         self.layout.addLayout(self.activity_layout,0,0,2,1)
         self.layout.addLayout(self.button_layout,0,2,2,1)
         self.layout.addLayout(self.timer_layout,1,1,2,1)
@@ -34,117 +48,96 @@ class GUI(QtWidgets.QWidget):
         self.layout.setHorizontalSpacing(125)
         self.layout.setVerticalSpacing(100)
 
-        # self.activity_layout.setContentsMargins(20, 20, 20, 20) 
-        # self.activity_layout.addSpacing(100)       
-
-        # self.add_activity()
-        # self.check_buttons()
-
-        # self.setLayout(self.layout)
-
-        self.timer = QtCore.QTimer(self)
-
-		# adding action to timer
-        self.timer.timeout.connect(self.display_time)
-
-		# update the timer every second
-        self.timer.start(1000)
-
-        self.show()
-
-
     def ui_components(self):
         #displaying text
         self.text_label = QtWidgets.QLabel("Your Activities", self)
-        # self.text_label.setText("Your Activities")
-        # self.text_label.setGeometry(75, 50, 250, 70)
         self.text_label.setFont(QtGui.QFont("Montserrat", 16))
         self.activity_layout.addWidget(self.text_label)
 
-
         # textbox to add activities
         self.activity_name = QtWidgets.QLineEdit(self)
-        # activity_name.setText("Enter activity name")
-        # self.activity_name.setGeometry(75, 30, 20, 35)
         self.activity_name.setFont(QtGui.QFont("Montserrat", 12))
         self.activity_layout.addWidget(self.activity_name)
 
+        # textbox for filename
+        self.file_input = QtWidgets.QLineEdit(self)
+        self.file_input.setFont(QtGui.QFont("Montserrat", 12))
 
     def init_buttons(self):
-        #creating buttons
-        self.add_new = QtWidgets.QPushButton("add new", self, clicked=lambda:self.add_activity(self.activity_count))
-        # self.add_new.pressed.connect(lambda:self.add_activity())
-
-        self.next_day = QtWidgets.QPushButton("Next day", self)
-        
+        # creating buttons
+        self.add_new = QtWidgets.QPushButton("add new", self, clicked=lambda:self.add_activity())
+        self.next_day = QtWidgets.QPushButton("Next day", self, clicked=lambda:self.next())
         self.today_times = QtWidgets.QPushButton("Show today's times", self)
-        
         self.past_times = QtWidgets.QPushButton("Show past times", self)
-        
         self.read_file = QtWidgets.QPushButton("Read file", self)
-        
         self.start_timer = QtWidgets.QPushButton("Start Timer", self, clicked=lambda:self.start())
-
         self.stop_timer = QtWidgets.QPushButton("Stop Timer", self, clicked=lambda:self.stop())
-        
         self.reset_timer = QtWidgets.QPushButton("Reset Timer", self, clicked=lambda:self.reset())
 
+        # creating time display
         self.time = QtWidgets.QLCDNumber(self)
         self.timer_layout.addWidget(self.time)
         self.timer_layout.insertSpacing(1, 100)
         self.timer_layout.addSpacing(100)
 
-
-        #styling buttons
-        # self.add_new.setGeometry(350, 300, 150, 37)
+        # styling buttons
         self.add_new.setFont(QtGui.QFont("Montserrat", 12))
-        self.activity_layout.addWidget(self.add_new)
         self.activity_layout.insertSpacing(2, 10)
-
-
-        # self.next_day.setGeometry(750, 100, 200, 40)
         self.next_day.setFont(QtGui.QFont("Montserrat", 12))
-        self.button_layout.addWidget(self.next_day)
-
-        # self.today_times.setGeometry(750, 175, 200, 40)
         self.today_times.setFont(QtGui.QFont("Montserrat", 12))
-        self.button_layout.addWidget(self.today_times)
-        
-        # self.past_times.setGeometry(750, 250, 200, 40)
         self.past_times.setFont(QtGui.QFont("Montserrat", 12))
-        self.button_layout.addWidget(self.past_times)
-
-        # self.read_file.setGeometry(750, 325, 200, 40)
         self.read_file.setFont(QtGui.QFont("Montserrat", 12))
-        self.button_layout.addWidget(self.read_file)
-
-        # self.start_timer.setGeometry(250, 400, 200, 40)
         self.start_timer.setFont(QtGui.QFont("Montserrat", 12))
-        self.timer_layout.addWidget(self.start_timer)
-
         self.stop_timer.setFont(QtGui.QFont("Montserrat", 12))
-        self.timer_layout.addWidget(self.stop_timer)
-
         self.reset_timer.setFont(QtGui.QFont("Montserrat", 12))
+
+        # adding buttons to layout
+        self.activity_layout.addWidget(self.add_new)
+        self.button_layout.addWidget(self.next_day)
+        self.button_layout.addWidget(self.today_times)
+        self.button_layout.addWidget(self.past_times)
+        self.button_layout.addWidget(self.file_input)
+        self.button_layout.addWidget(self.read_file)
+        self.timer_layout.addWidget(self.start_timer)
+        self.timer_layout.addWidget(self.stop_timer)
         self.timer_layout.addWidget(self.reset_timer)
 
-    def add_activity(self, i):
-        # checking that only 5 activities are added
-        if i < 5 and self.activity_name.text() != "":
-            # checkbox with activities
-            text = self.activity_name.text().split("/ ")
-            name = text[0]
-            hours = text[1]
-            # self.activities.addItem(name)
-            self.checkbox = QtWidgets.QCheckBox(name, self)
-            self.checkbox.setGeometry(25, 100, 30, 30)
-            self.checkbox.setFont(QtGui.QFont("Montserrat", 12))
+    def check_activities(self, name):
+        for activity in self.activities:
+            if activity.get_name() == name:
+                return True
+        
+        return False
 
-            # layout = QtWidgets.QVBoxLayout(self)
-            self.activity_layout.insertWidget(i+1, self.checkbox)
-            self.activity_count += 1
+    def add_activity(self):
+        if len(self.activities) < 5 and self.activity_name.text():  # checking that only 5 activities are added
+            text = self.activity_name.text().split("/")
+            name = text[0]
+            hours = int(text[1])
+            
+            if self.check_activities(name):
+                print("Activity already exists \n")
+            else:
+                self.activities.append(Activity(name, hours))  # creating object
+
+            checkbox = QtWidgets.QCheckBox(name, self)
+            checkbox.setGeometry(25, 100, 30, 30)
+            checkbox.setFont(QtGui.QFont("Montserrat", 12))
+            self.activity_layout.insertWidget(len(self.activities), checkbox)
+
+            self.checkboxes.append(checkbox)
 
         self.activity_name.setText("")
+
+    def add_time(self, time):
+        for checkbox in self.checkboxes:
+            if checkbox.isChecked():
+                index = self.checkboxes.index(checkbox)
+                activity = self.activities[index]
+                activity.add_time(time)
+
+                name = checkbox.text().split(" / ")
+                checkbox.setText(f"{name[0]} / {activity.calculate_progress():.02f}%")
 
     def display_time(self):        
         if self.flag:   # checking if flag is true  
@@ -156,18 +149,30 @@ class GUI(QtWidgets.QWidget):
         self.time.display(text)    # showing text
 
     def start(self):
-        self.flag = True
+        self.flag = True    # setting flag to True
 
     def stop(self):
-        self.flag = False   # making flag to false
+        self.flag = False   # setting flag to False
     
     def reset(self):
         self.flag = False
+        self.add_time(self.timer_count)  # adding time to activities selected
         self.timer_count = 0      # resetting the count
     
     def pomodoro(self):
         pass
     
+    def next(self):
+        pass
+    
+    def today(self):
+        pass
+
+    def past(self):
+        pass
+    
+    def read(self):
+        pass
 
 app = QtWidgets.QApplication(sys.argv)
 window = GUI()

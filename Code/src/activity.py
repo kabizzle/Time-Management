@@ -1,46 +1,38 @@
 from time_data import Time
 
 class Activity:
-    def __init__(self, name, start_time, end_time, total):
+    def __init__(self, name, total):
         self.name = name
-        self.time = Time(start_time, end_time)
-        self.required = total * 3600 # in seconds
+        self.times = []
+        self.required = int(total) # in hours
         self.total = 0
 
     def get_name(self):
         return self.name
 
-    def get_time(self):
-        return self.time
+    def get_total_time(self):
+        return self.total / 3600
 
-    def change_time(self, start_time, end_time):
-        self.time = Time(start_time, end_time)
-        self.update_total(self.time.get_total_time())
+    def add_time(self, time):  # time in seconds
+        self.times.append(Time(time))
+        self.total += time
     
     def calculate_progress(self):
-        progress = self.time.get_total_time() / self.required
+        progress = self.total / (self.required*3600)
         return progress*100
-    
-    def update_total(self, added_time):
-        self.total += added_time
 
+    def serialize_times(self):
+        times = {}
+        count = 1
+        for time in self.times:
+            times[f"Entry {count}"] = time.serialize()
+            count += 1
+        
+        return times
+    
     def serialize(self):
         return {
             "Activity" : self.name,
-            "Time" : self.time.serialize(),
-            "Progress" : f"{self.calculate_progress():02.0f}%"
+            "Times" : self.serialize_times(),
+            "Progress" : f"{self.calculate_progress():.02f}%"
         }
-    # def get_start_time(self):
-    #     return self.start_time
-
-
-    # def get_end_time(self):
-    #     return self.end_time
-
-
-    # def set_end_time(self, end_time):
-    #     self.end_time = end_time
-    
-
-    # def get_total_time(self):
-    #     return self.end_time - self.start_time
