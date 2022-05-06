@@ -1,7 +1,4 @@
 import sys
-# from file_data import FileData
-# from activity import Activity
-# from time_data import Time
 from PyQt5 import QtWidgets
 from gui import GUI
 

@@ -1,0 +1,178 @@
+{
+    "2022-05-07": [
+        {
+            "Activity": "Python",
+            "Times": {
+                "Entry 1": {
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1
+                }
+            },
+            "Progress": "0.01%"
+        },
+        {
+            "Activity": "Calculus",
+            "Times": {},
+            "Progress": "0.00%"
+        },
+        {
+            "Activity": "Basics in electronics",
+            "Times": {},
+            "Progress": "0.00%"
+        }
+    ]
+}{
+    "2022-05-07": [
+        {
+            "Activity": "Python",
+            "Times": {
+                "Entry 1": {
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1
+                }
+            },
+            "Progress": "0.01%"
+        },
+        {
+            "Activity": "Calculus",
+            "Times": {},
+            "Progress": "0.00%"
+        },
+        {
+            "Activity": "Basics in electronics",
+            "Times": {
+                "Entry 1": {
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4
+                }
+            },
+            "Progress": "0.02%"
+        }
+    ]
+}{
+    "2022-05-07": [
+        {
+            "Activity": "Python",
+            "Times": {
+                "Entry 1": {
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1
+                }
+            },
+            "Progress": "0.01%"
+        },
+        {
+            "Activity": "Calculus",
+            "Times": {
+                "Entry 1": {
+                    "hours": 0,
+                    "minutes": 16,
+                    "seconds": 17
+                }
+            },
+            "Progress": "13.57%"
+        },
+        {
+            "Activity": "Basics in electronics",
+            "Times": {
+                "Entry 1": {
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4
+                }
+            },
+            "Progress": "0.02%"
+        }
+    ]
+}{
+    "2022-05-07": [
+        {
+            "Activity": "Python",
+            "Times": {
+                "Entry 1": {
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1
+                },
+                "Entry 2": {
+                    "hours": 0,
+                    "minutes": 13,
+                    "seconds": 34
+                }
+            },
+            "Progress": "11.32%"
+        },
+        {
+            "Activity": "Calculus",
+            "Times": {
+                "Entry 1": {
+                    "hours": 0,
+                    "minutes": 16,
+                    "seconds": 17
+                }
+            },
+            "Progress": "13.57%"
+        },
+        {
+            "Activity": "Basics in electronics",
+            "Times": {
+                "Entry 1": {
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4
+                }
+            },
+            "Progress": "0.02%"
+        }
+    ]
+}{
+    "2022-05-07": [
+        {
+            "Activity": "Python",
+            "Times": {
+                "Entry 1": {
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1
+                },
+                "Entry 2": {
+                    "hours": 0,
+                    "minutes": 13,
+                    "seconds": 34
+                },
+                "Entry 3": {
+                    "hours": 0,
+                    "minutes": 9,
+                    "seconds": 25
+                }
+            },
+            "Progress": "19.17%"
+        },
+        {
+            "Activity": "Calculus",
+            "Times": {
+                "Entry 1": {
+                    "hours": 0,
+                    "minutes": 16,
+                    "seconds": 17
+                }
+            },
+            "Progress": "13.57%"
+        },
+        {
+            "Activity": "Basics in electronics",
+            "Times": {
+                "Entry 1": {
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4
+                }
+            },
+            "Progress": "0.02%"
+        }
+    ]
+}

@@ -3,8 +3,6 @@ import sys
 from activity import Activity
 from file_data import FileData
 
-# from timer_class import Timer
-
 class GUI(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
@@ -162,12 +160,8 @@ class GUI(QtWidgets.QWidget):
         text = f"{minutes}:{seconds:02d}"     # getting text from count
         self.time.display(text)    # showing text
 
-    # def interrupt(self):
-    #     for checkbox in self.checkboxes:
-    #         checkbox.stateChanged.connect(lambda:self.check_interrupt(checkbox))
-
     def reminder(self):
-        if self.timer_count > 0 and (self.timer_count % 1500 == 0) :
+        if self.timer_count > 0 and (self.timer_count % 1800 == 0) :
             print("Remember to take a break!")
             self.reminder_widget.setText("Remember to take a break!")
 
@@ -201,9 +195,6 @@ class GUI(QtWidgets.QWidget):
             json_data.append(activity.serialize())
         return json_data
 
-    def pomodoro(self):
-        pass
-    
     def next(self):
         self.write()
         self.date = self.date.addDays(1)
