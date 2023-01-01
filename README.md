@@ -26,3 +26,8 @@ The program is executed by navigating to ./Code/src and running main.py
 e.g. "python main.py"
 
 This will launch the graphical user interface, and the rest of the execution will take place within the interface.
+
+Activities can be added in the form "<acitivity name> / <desired number of hours>"
+
+## Preview of App
+![app preview](https://user-images.githubusercontent.com/76238248/210178355-a5597d83-5239-4b33-af07-8916d4b5c609.png)
