@@ -1,9 +1,8 @@
-# Time Management
-# Kabir Bissessar 1007073 CS-A1123
+# Time Management Project
 
-# Project's name
+## Final Programming Project for CS-A1123 Basics in Programming Y2 (Spring 2022)
 
-## Introduction
+# Introduction
 
 My project is a Time Management app. I have built a graphical interface where a user can add activities and track the time spent on them. 
 
